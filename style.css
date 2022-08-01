@@ -1,0 +1,111 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  touch-action: none;
+}
+
+.section {
+  min-width: 100%;
+  height: 100vh;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.one { background-color: #fffee1;}
+.two { background-color: #e2fcff;}
+.three { background-color: #d0eaff;}
+.four { background-color: #fce8f4;}
+.section ul { list-style: none;}
+
+.section img { 
+  height: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 48%;
+  transition: .5s; 
+}
+
+.two li:nth-child(1) img{
+  width: 12%;
+  height: auto;
+  z-index: 5;
+  /* transform:translate(144px, 35.239px) rotate(-16.0763deg); */
+  transform:translate(0, 0) rotate(0);
+}
+
+.two li:nth-child(2) img {
+  width: 13%;
+  height: auto;
+  left: 7%;
+  bottom: calc(48% - 100px);
+  z-index: 4;
+}
+
+.two li:nth-child(3) img {
+  width: 25%;
+  height: auto;
+  left: 16.4%;
+  bottom: calc(48% - 200px);
+  z-index: 2;
+}
+
+.two li:nth-child(4) img {
+  width: 10%;
+  height: auto;
+  left: 37.3%;
+  bottom: calc(48% - 250px);
+  z-index: 4;
+}
+
+.two li:nth-child(5) img {
+  width: 13%;
+  height: auto;
+  left: 41.4%;
+  bottom: calc(48% - 50px);
+  z-index: 4;
+}
+
+@media screen and (max-width:768px) {
+  .container {
+    height: auto;
+    position: absolute;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transform: none !important;
+        -ms-transform: none !important;
+            transform: none !important;
+  }
+}
+
+/* JS common classes */
+.container .section .og-position { 
+  /* transform:translate(0, 0) rotate(0); */
+  border: 1px solid red;
+}
