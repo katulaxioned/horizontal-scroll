@@ -1,28 +1,109 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
+@charset "utf-8";
 
-* {
+/* ==========================================================================
+1. CSS Reset Code
+========================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-.container {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, main {
+  display: block;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+ol,
+ul { list-style: none; }
+
+img,
+video {
   width: 100%;
+  height: auto;
+  border: 0;
+  vertical-align: middle;
+}
+
+label,
+input[type='button'],
+input[type='submit'],
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+strong {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+em { font-style: italic; }
+
+sub,
+sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 55%;
+  line-height: 0;
+}
+
+sup { top: -.7em; }
+sub { bottom: -.25em; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a { 
+  color: #fff;
+  display: inline-block;
+  text-decoration: none; 
+}
+
+/* 1.2. Clear Fix
+========================== */
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+
+body { overflow-x: hidden;}
+
+.container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  touch-action: none;
 }
 
 .section {
-  min-width: 100%;
+  flex: none;
+  width: 100vw;
   height: 100vh;
   position: relative;
   display: -webkit-box;
@@ -47,18 +128,16 @@
   position: absolute;
   left: 0;
   bottom: 48%;
-  transition: .5s; 
 }
 
-.two li:nth-child(1) img{
+.three li:nth-child(1) img{
   width: 12%;
   height: auto;
   z-index: 5;
-  /* transform:translate(144px, 35.239px) rotate(-16.0763deg); */
-  transform:translate(0, 0) rotate(0);
+  /* transform:translate(144px, -1.9732px) rotate(-1.55099deg); */
 }
 
-.two li:nth-child(2) img {
+.three li:nth-child(2) img {
   width: 13%;
   height: auto;
   left: 7%;
@@ -66,7 +145,7 @@
   z-index: 4;
 }
 
-.two li:nth-child(3) img {
+.three li:nth-child(3) img {
   width: 25%;
   height: auto;
   left: 16.4%;
@@ -74,7 +153,7 @@
   z-index: 2;
 }
 
-.two li:nth-child(4) img {
+.three li:nth-child(4) img {
   width: 10%;
   height: auto;
   left: 37.3%;
@@ -82,7 +161,7 @@
   z-index: 4;
 }
 
-.two li:nth-child(5) img {
+.three li:nth-child(5) img {
   width: 13%;
   height: auto;
   left: 41.4%;
@@ -106,6 +185,6 @@
 
 /* JS common classes */
 .container .section .og-position { 
-  /* transform:translate(0, 0) rotate(0); */
+  transform:translate(0, 0) rotate(0);
   border: 1px solid red;
 }
