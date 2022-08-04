@@ -134,7 +134,7 @@ body { overflow-x: hidden;}
   width: 12%;
   height: auto;
   z-index: 5;
-  /* transform:translate(144px, -1.9732px) rotate(-1.55099deg); */
+  transform:translate(144px, -1.9732px) rotate(-1.55099deg);
 }
 
 .three li:nth-child(2) img {

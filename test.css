@@ -1,0 +1,20 @@
+.fixed-content {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.content {
+    position: absolute;
+}
+
+.animate {
+  position: relative;
+  display: block;
+  font-size: 45px;
+}
+
+.copy-scroll-container {
+    height: 500vh;
+}

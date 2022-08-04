@@ -33,10 +33,12 @@ let scrollTween = gsap.to(sections, {
 
 let img1 = document.querySelector(".three ul li:nth-child(1) img");
 
-img1.style.cssText = `transform:translate(144px, ${startAnimation.img1.y}) rotate(${startAnimation.img1.rotation}deg);`;
+// img1.style.cssText = `transform:translate(144px, ${startAnimation.img1.y}) rotate(${startAnimation.img1.rotation}deg);`;
 // img1.style.cssText = `transform:translate(0, 0) rotate(0);`;
 
-gsap.to(img1, {
+const tl = gsap.timeline();
+
+tl.to(img1, {
   scrollTrigger: {
     trigger: img1,
     containerAnimation: scrollTween,
@@ -48,7 +50,8 @@ gsap.to(img1, {
     toggleActions: "play none none reverse",
     scrub: !0,
   },
-  // x: 144,
+  immediateRender: false,
+  // x: "50%",
   // y: 100 * (Math.random() - 0.5),
   // rotation: 40 * (Math.random() - 0.5),
   x: 0,
@@ -58,19 +61,20 @@ gsap.to(img1, {
   ease: "power2.out"
 });
 
-gsap.to(img1, {
+tl.to(img1, {
   scrollTrigger: {
     trigger: img1,
     containerAnimation: scrollTween,
-    start: "left left",
-    end: () =>
+    end: "left left",
+    start: () =>
       "+=" + "-" +
       document.querySelector(".three ul li:nth-child(1) img").offsetWidth,
     markers: true,
     toggleActions: "play none none reverse",
     scrub: 1,
   },
-  x: -144,
+  immediateRender: false,
+  x: "-50%",
   y: 100 * (Math.random() - 0.5),
   rotation: 40 * (Math.random() - 0.5),
   duration: 1,
