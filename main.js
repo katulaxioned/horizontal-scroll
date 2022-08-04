@@ -1,21 +1,3 @@
-const startAnimation = {
-  img1: {
-    rotation: 40 * (Math.random() - 0.5),
-    y: 100 * (Math.random() - 0.5) + "px",
-    x: 0.1 * window.innerWidth + "px",
-  },
-};
-
-const endAnimation = {
-  img1: {
-    rotation: 40 * (Math.random() - 0.5),
-    y: 100 * (Math.random() - 0.5) + "px",
-    x: -0.1 * window.innerWidth + "px",
-  },
-};
-
-console.log(endAnimation.img1);
-
 gsap.registerPlugin(ScrollTrigger);
 
 let sections = gsap.utils.toArray(".section");
@@ -31,52 +13,44 @@ let scrollTween = gsap.to(sections, {
   },
 });
 
-let img1 = document.querySelector(".three ul li:nth-child(1) img");
-
-// img1.style.cssText = `transform:translate(144px, ${startAnimation.img1.y}) rotate(${startAnimation.img1.rotation}deg);`;
-// img1.style.cssText = `transform:translate(0, 0) rotate(0);`;
-
 const tl = gsap.timeline();
 
-tl.to(img1, {
-  scrollTrigger: {
-    trigger: img1,
-    containerAnimation: scrollTween,
-    start: "left right",
-    end: () =>
-      "+=" +
-      document.querySelector(".three ul li:nth-child(1) img").offsetWidth,
-    markers: true,
-    toggleActions: "play none none reverse",
-    scrub: !0,
-  },
-  immediateRender: false,
-  // x: "50%",
-  // y: 100 * (Math.random() - 0.5),
-  // rotation: 40 * (Math.random() - 0.5),
-  x: 0,
-  y: 0,
-  rotation: 0,
-  duration: 1,
-  ease: "power2.out"
-});
+document.querySelectorAll(".three ul li img").forEach(img => {
+  tl.from(img, {
+    scrollTrigger: {
+      trigger: img,
+      containerAnimation: scrollTween,
+      start: "left right",
+      end: () =>
+        "+=" +
+        document.querySelector(".three ul li:nth-child(1) img").offsetWidth,
+      toggleActions: "play none none reverse",
+      scrub: 1,
+    },
+    immediateRender: false,
+    x: 144,
+    y: 100 * (Math.random() - 0.5),
+    rotation: 40 * (Math.random() - 0.5),
+    duration: 1,
+    ease: "power2.out"
+  });
 
-tl.to(img1, {
-  scrollTrigger: {
-    trigger: img1,
-    containerAnimation: scrollTween,
-    end: "left left",
-    start: () =>
-      "+=" + "-" +
-      document.querySelector(".three ul li:nth-child(1) img").offsetWidth,
-    markers: true,
-    toggleActions: "play none none reverse",
-    scrub: 1,
-  },
-  immediateRender: false,
-  x: "-50%",
-  y: 100 * (Math.random() - 0.5),
-  rotation: 40 * (Math.random() - 0.5),
-  duration: 1,
-  ease: "power2.out"
+  tl.fromTo(img, {x: 0, y: 0, rotation: 0}, {
+    scrollTrigger: {
+      trigger: img,
+      containerAnimation: scrollTween,
+      end: "left left",
+      start: () =>
+        "+=" + "-" +
+        document.querySelector(".three ul li:nth-child(1) img").offsetWidth,
+      toggleActions: "play none none reverse",
+      scrub: 1,
+    },
+    immediateRender: false,
+    x: -144,
+    y: 100 * (Math.random() - 0.5),
+    rotation: 40 * (Math.random() - 0.5),
+    duration: 1,
+    ease: "power2.out"
+  });
 });
